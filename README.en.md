@@ -9,7 +9,7 @@
 
 <div align="center">
 
-[English](README.en.md) | [简体中文](README.md)
+[Docs](https://arch.gh.wzhecnu.cn/ChatCube/en/) | [English](README.en.md) | [简体中文](README.md)
 </div>
 
 # ChatCube
@@ -19,14 +19,20 @@ ChatCube: ChatArch placeholder package for cube workflows.
 ## Quick Start
 
 ```bash
-pip install -e ".[dev]"
+pip install ChatCube
 chatcube --help
 chatcube --version
 chatcube --tree
-python -m pytest -q
-python -m build
 ```
 
+Development environment:
+
+```bash
+python -m pip install -e ".[dev,docs]"
+python -m pytest -q
+mkdocs build --strict
+python -m build
+```
 
 ## CLI Tree
 
@@ -41,7 +47,7 @@ chatcube  # ChatArch placeholder CLI for cube workflow packages.
 
 ## CLI Contract
 
-This template depends on `chatstyle>=0.1.0,<0.2.0` and `chatenv>=0.2.0,<0.3.0`. New commands should prefer:
+The current public command surface is root-only; the scaffold sample command is not present. New commands should prefer:
 
 - `CommandSchema` / `CommandField` for inputs.
 - `add_interactive_option()` for the shared `-i/-I` switch.

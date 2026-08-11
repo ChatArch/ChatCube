@@ -18,7 +18,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ChatArch/ChatCube"
+Homepage = "https://arch.gh.wzhecnu.cn/ChatCube/"
+Documentation = "https://arch.gh.wzhecnu.cn/ChatCube/"
 Repository = "https://github.com/ChatArch/ChatCube"
 
 [project.scripts]
@@ -29,6 +30,7 @@ chatcube = "chatcube.config"
 
 [project.optional-dependencies]
 dev = ["build", "pytest", "twine"]
+docs = ["mkdocs>=1.6,<2.0", "mkdocs-material>=9.5,<10.0", "mkdocs-static-i18n>=1.2,<2.0", "mike>=2.0,<3.0"]
 
 [tool.setuptools.dynamic]
 version = {attr = "chatcube.__version__"}
