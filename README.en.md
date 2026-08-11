@@ -22,8 +22,21 @@ ChatCube: ChatArch placeholder package for cube workflows.
 pip install -e ".[dev]"
 chatcube --help
 chatcube --version
+chatcube --tree
 python -m pytest -q
 python -m build
+```
+
+
+## CLI Tree
+
+Run `chatcube --tree` to read back the current command tree from the live Click registry:
+
+```text
+chatcube  # ChatArch placeholder CLI for cube workflow packages.
+├── --help  # Show this help message.
+├── --version  # Show the installed package version.
+└── --tree  # Print the registered command tree.
 ```
 
 ## CLI Contract
