@@ -1,0 +1,6 @@
+include README.md
+include README.en.md
+include CHANGELOG.md
+include AGENTS.md
+include DEVELOP.md
+recursive-include .github/workflows *.yml
