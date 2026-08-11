@@ -1,0 +1,42 @@
+site_name: ChatCube
+site_url: "https://arch.gh.wzhecnu.cn/ChatCube/"
+repo_url: https://github.com/ChatArch/ChatCube
+repo_name: ChatArch/ChatCube
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.sections
+    - navigation.top
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      languages:
+        - locale: zh
+          default: true
+          name: 简体中文
+          build: true
+        - locale: en
+          name: English
+          build: true
+          site_name: ChatCube
+
+nav:
+  - 首页: index.md
+  - CLI 树: cli-tree.md
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+strict: true

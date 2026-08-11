@@ -9,7 +9,7 @@
 
 <div align="center">
 
-[English](README.en.md) | [简体中文](README.md)
+[文档](https://arch.gh.wzhecnu.cn/ChatCube/) | [English](README.en.md) | [简体中文](README.md)
 </div>
 
 # ChatCube
@@ -19,14 +19,20 @@ ChatCube: ChatArch placeholder package for cube workflows.
 ## 快速开始
 
 ```bash
-pip install -e ".[dev]"
+pip install ChatCube
 chatcube --help
 chatcube --version
 chatcube --tree
-python -m pytest -q
-python -m build
 ```
 
+开发环境：
+
+```bash
+python -m pip install -e ".[dev,docs]"
+python -m pytest -q
+mkdocs build --strict
+python -m build
+```
 
 ## CLI 树
 
@@ -41,7 +47,7 @@ chatcube  # ChatArch placeholder CLI for cube workflow packages.
 
 ## CLI 规范
 
-这个模板默认依赖 `chatstyle>=0.1.0,<0.2.0` 和 `chatenv>=0.2.0,<0.3.0`，新的命令应优先使用：
+当前公开命令面是 root-only；没有保留脚手架示例命令。新的命令应优先使用：
 
 - `CommandSchema` / `CommandField` 描述输入。
 - `add_interactive_option()` 提供统一 `-i/-I`。
