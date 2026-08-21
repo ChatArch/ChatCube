@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.3 - 2026-08-21
+
+### Added
+- Add `chatcube --tree-brief` for command-tree readback without parameter signatures.
+
+### Changed
+- Use ChatStyle's shared Click tree runtime for the canonical `chatcube` root, with signatures enabled by default for command nodes.
+- Require `chatstyle>=0.2.0,<0.3.0` and `chatenv>=0.2.10,<0.3.0`.
+
 ## 0.1.2 - 2026-08-12
 
 ### Added

@@ -27,4 +27,5 @@ jobs:
       - run: python -m pytest -q
       - run: chatcube --version
       - run: chatcube --tree
+      - run: chatcube --tree-brief
       - run: python -m build
