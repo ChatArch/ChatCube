@@ -1,6 +1,6 @@
 # ChatCube
 
-ChatCube is a ChatArch cube-workflow Python CLI package. Its public command surface is currently root-only: the root command exposes `--help`, `--version`, and `--tree`; the scaffold sample command is not present.
+ChatCube is a ChatArch cube-workflow Python CLI package. Its public command surface is currently root-only: the root command exposes `--help`, `--version`, `--tree`, and `--tree-brief`; the scaffold sample command is not present.
 
 ## Install
 
@@ -9,18 +9,22 @@ pip install ChatCube
 chatcube --help
 chatcube --version
 chatcube --tree
+chatcube --tree-brief
 ```
 
 ## CLI Tree
 
-`chatcube --tree` reads the current command tree from the live Click registry:
+`chatcube --tree` reads the current command tree from the live Click registry through the shared ChatStyle runtime:
 
 ```text
-chatcube  # ChatArch placeholder CLI for cube workflow packages.
-├── --help  # Show this help message.
-├── --version  # Show the installed package version.
-└── --tree  # Print the registered command tree.
+chatcube
+├── --help  # Show this message and exit.
+├── --version  # Show the version and exit.
+├── --tree  # Print the registered CLI tree and exit.
+└── --tree-brief  # Print the registered CLI tree without parameter signatures and exit.
 ```
+
+`--tree` retains parameter signatures on command nodes by default. `--tree-brief` omits those signatures while keeping command nodes and descriptions. The canonical root name of the current root-only CLI is `chatcube`.
 
 ## Development
 

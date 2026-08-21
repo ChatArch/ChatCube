@@ -29,20 +29,24 @@ def test_mkdocs_material_bilingual_public_docs_contract():
     assert 'Homepage = "https://arch.gh.wzhecnu.cn/ChatCube/"' in pyproject
     assert 'Documentation = "https://arch.gh.wzhecnu.cn/ChatCube/"' in pyproject
     assert 'Repository = "https://github.com/ChatArch/ChatCube"' in pyproject
+    assert "chatstyle>=0.2.0,<0.3.0" in pyproject
+    assert "chatenv>=0.2.10,<0.3.0" in pyproject
 
 
 def test_public_docs_match_live_root_only_tree_and_no_material_literals():
     expected = [
-        "chatcube  # ChatArch placeholder CLI for cube workflow packages.",
-        "├── --help  # Show this help message.",
-        "├── --version  # Show the installed package version.",
-        "└── --tree  # Print the registered command tree.",
+        "chatcube",
+        "├── --help  # Show this message and exit.",
+        "├── --version  # Show the version and exit.",
+        "├── --tree  # Print the registered CLI tree and exit.",
+        "└── --tree-brief  # Print the registered CLI tree without parameter signatures and exit.",
     ]
     for rel in PUBLIC_DOCS:
         text = Path(rel).read_text(encoding="utf-8")
         assert ":material-" not in text, rel
         assert "sample-command" not in text.lower(), rel
         assert "ChatCube" in text, rel
+        assert "--tree-brief" in text, rel
     for rel in PUBLIC_DOCS:
         if "cli-tree" in rel or rel.startswith("README"):
             text = Path(rel).read_text(encoding="utf-8")

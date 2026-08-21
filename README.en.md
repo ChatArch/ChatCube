@@ -23,6 +23,7 @@ pip install ChatCube
 chatcube --help
 chatcube --version
 chatcube --tree
+chatcube --tree-brief
 ```
 
 Development environment:
@@ -36,14 +37,17 @@ python -m build
 
 ## CLI Tree
 
-Run `chatcube --tree` to read back the current command tree from the live Click registry:
+Run `chatcube --tree` to read back the current command tree from the live Click registry through the shared ChatStyle runtime:
 
 ```text
-chatcube  # ChatArch placeholder CLI for cube workflow packages.
-├── --help  # Show this help message.
-├── --version  # Show the installed package version.
-└── --tree  # Print the registered command tree.
+chatcube
+├── --help  # Show this message and exit.
+├── --version  # Show the version and exit.
+├── --tree  # Print the registered CLI tree and exit.
+└── --tree-brief  # Print the registered CLI tree without parameter signatures and exit.
 ```
+
+`--tree` keeps registered parameter signatures on command nodes by default. `--tree-brief` omits those signatures while retaining command nodes and descriptions. The current public surface is root-only, so its live output contains only the canonical `chatcube` root and its root-option nodes.
 
 ## CLI Contract
 
@@ -52,6 +56,7 @@ The current public command surface is root-only; the scaffold sample command is 
 - `CommandSchema` / `CommandField` for inputs.
 - `add_interactive_option()` for the shared `-i/-I` switch.
 - `resolve_command_inputs()` for missing args, defaults, TTY behavior, and validation.
+- `add_tree_option()` for shared `--tree` / `--tree-brief` readback on the top-level Click command.
 - Generate `config.py` and a `chatenv.configs` entry point by default so the package is ChatEnv-discoverable; use `--without-chatenv-provider` only when ChatEnv integration is intentionally not needed.
 
 ## Layout
